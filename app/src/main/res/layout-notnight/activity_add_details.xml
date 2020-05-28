@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".AddDetailActivity">
+
+    <EditText
+        android:id="@+id/websiteUrl"
+        android:layout_width="374dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:autofillHints="@android:string/no"
+        android:ems="10"
+        android:hint="@string/website_input_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/websiteUsername"
+        android:layout_width="374dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:autofillHints="AUTOFILL_HINT_USERNAME"
+        android:ems="10"
+        android:hint="@string/website_username_hint"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/websiteUrl" />
+
+    <EditText
+        android:id="@+id/websiteNote"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="374dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:autofillHints="AUTOFILL_HINT_PASSWORD"
+        android:ems="10"
+        android:hint="@string/website_NOTE_hint"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/websitePassword" />
+
+    <EditText
+        android:id="@+id/websitePassword"
+        android:layout_width="374dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:autofillHints="AUTOFILL_HINT_PASSWORD"
+        android:ems="10"
+        android:hint="@string/website_password_hint"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/websiteUsername" />
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="114dp"
+        android:layout_height="65dp"
+        android:onClick="saveNewDetails"
+        android:text="@string/website_save_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/websiteNote" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
