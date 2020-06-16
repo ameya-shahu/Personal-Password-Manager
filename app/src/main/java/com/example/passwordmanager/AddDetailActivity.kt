@@ -33,8 +33,8 @@ class AddDetailActivity : AppCompatActivity() {
         else if(password.isBlank()) Toast.makeText(this,"Enter Password", Toast.LENGTH_SHORT).show()
         else{
             val credential = CredentialsModel(url,userName,password,note)
-            var db = DataBaseHandler(this)
-            var statusFlag = db.insertData(credential)
+            val db = DataBaseHandler(this)
+            val statusFlag = db.insertData(credential)
 
             if(statusFlag==1){
                 val intent = Intent(this, MainActivity::class.java)

@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.os.Build.ID
 import android.widget.Toast
 
 
@@ -61,6 +62,13 @@ class DataBaseHandler(var context : Context): SQLiteOpenHelper(context, DATABASE
         }
         db.close()
         return statusFlag
+    }
+
+    fun deleteData(id: Int) : Boolean{
+        val db = this.writableDatabase
+        val success = db.delete(TABLE_NAME, "$COL_ID=?", arrayOf(id.toString())).toLong()
+        db.close()
+        return Integer.parseInt("$success") !=-1
     }
 
     fun readCredentials() : MutableList<CredentialsModel>{

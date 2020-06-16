@@ -1,25 +1,26 @@
 package com.example.passwordmanager
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.list_item_layout.view.*
 
-class CredentialAdapter(val items : List<CredentialsModel>,ctx: Context): RecyclerView.Adapter<CredentialAdapter.ViewHolder>() {
-
-    var credentialList = items
+class CredentialAdapter(
+    private val items: List<CredentialsModel>,
+    ctx: Context, val clickListener: (CredentialsModel) -> Unit
+): RecyclerView.Adapter<CredentialAdapter.ViewHolder>() {
     var context = ctx
-
-
-
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val urlView = itemView.findViewById(R.id.urlView) as TextView
-        val userNameView = itemView.findViewById(R.id.userNameView ) as TextView
-        val passwordView = itemView.findViewById(R.id.passwordView) as TextView
-        val noteView = itemView.findViewById(R.id.noteView) as TextView
-
+        fun bind(credential: CredentialsModel,clickListener: (CredentialsModel) -> Unit){
+            itemView.urlView.text = credential.url
+            itemView.userNameView.text = credential.userName
+            itemView.passwordView.text = credential.password
+            itemView.noteView.text = credential.note
+            itemView.delButton.setOnClickListener{clickListener(credential)}
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,16 +28,12 @@ class CredentialAdapter(val items : List<CredentialsModel>,ctx: Context): Recycl
     }
 
     override fun getItemCount(): Int {
-        return credentialList.size
+        return items.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val credential:CredentialsModel = credentialList[position]
-        holder.urlView.text  = credential.url
-        holder.userNameView.text  = credential.userName
-        holder.passwordView.text  = credential.password
-        holder.noteView.text  = credential.note
-
-
+        val credential:CredentialsModel = items[position]
+        holder.bind(credential,clickListener)
     }
+
 }
