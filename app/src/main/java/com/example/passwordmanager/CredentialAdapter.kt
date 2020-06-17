@@ -3,16 +3,13 @@ package com.example.passwordmanager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.renderscript.RenderScript
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
-import android.content.Context.CLIPBOARD_SERVICE as CLIPBOARD_SERVICE1
 
 //private var items: MutableList<CredentialsModel>,
 
@@ -49,6 +46,9 @@ class CredentialAdapter(ctx: Context, val credentialList : ArrayList<Credentials
             val db = DataBaseHandler(context)
             if (db.deleteData(credential.id)) {
                 credentialList.removeAt(holder.getAdapterPosition())
+                if(credentialList.isEmpty()){
+                    (context as MainActivity).displayEmptyText()
+                }
                 notifyItemRemoved(position)
             }
         }
