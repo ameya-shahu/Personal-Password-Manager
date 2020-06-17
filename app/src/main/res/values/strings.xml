@@ -7,6 +7,10 @@
     <string name="website_save_button">SAVE DETAILS</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="delete_credential_button">DELETE</string>
+    <string name="copy_button">COPY</string>
+
+
+    <string name="empty_data">Add credentials</string>
     <!-- Strings used for fragments for navigation -->
 
     <!-- Strings used for fragments for navigation -->

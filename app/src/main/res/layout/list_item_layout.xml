@@ -47,6 +47,7 @@
                 android:layout_width="300dp"
                 android:layout_height="25dp"
                 android:layout_marginBottom="16dp"
+                android:password="true"
                 android:text="password"
                 app:layout_constraintBottom_toTopOf="@+id/noteView"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -65,13 +66,26 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
+                android:id="@+id/cpyButton"
+                android:layout_width="78dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/copy_button"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/delButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
                 android:id="@+id/delButton"
                 android:layout_width="78dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="36dp"
-                android:background="#E6360F"
+                android:background="@color/colorPrimaryDark"
                 android:text="@string/delete_credential_button"
+                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
